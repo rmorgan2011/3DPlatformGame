@@ -1,0 +1,16 @@
+Prefabs:
+	
+		PickableCube - This cube is able to be picked up by the player using MOUSE0. The player can also place this cube after they pick it up using MOUSE1.
+
+Scripts:
+
+	Cubes --
+		Move_PingPong - Used to move platforms in a ping pong direction.
+		Pickable - Used along with PickableCube prefab in order to for the player to pick the cube up.
+
+	Player --
+		Player - Keeps track of the player collisions, as well as when the scroll wheel is used to cycle through abilities. (This is connected to the FPSController so collisions are possible)
+		PlayerPickup - Keeps track of mouse clicks when the player picks/places a cube, as well as how many cubes the player is currently holding.(This is connected to the camera so that we can Raycast from the center of the screen)
+
+	Start Menu --
+		Play - Sends player to "Level" scene when 'p' is pressed.
