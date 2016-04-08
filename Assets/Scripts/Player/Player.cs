@@ -73,7 +73,11 @@ public class Player : MonoBehaviour
         }
         if (hit.gameObject.tag == "Checkpoint") {
             checkpoint = hit.gameObject.transform.position;
-            hit.SendMessage("HasBeenReached"); 
+            hit.SendMessage("HasBeenReached");
+        }
+        if (hit.gameObject.tag == "Exit")
+        {
+            hit.SendMessage("PlayerExits");
         }
     }
 }
