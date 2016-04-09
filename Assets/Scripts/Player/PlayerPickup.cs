@@ -6,6 +6,7 @@ public class PlayerPickup : MonoBehaviour {
 
     public int playerCubes;
     public GameObject cube;
+    public GameObject cube2;
     public float reach;
     public Text cubeText;
 
@@ -39,8 +40,15 @@ public class PlayerPickup : MonoBehaviour {
                 Ray pickableRay = new Ray(transform.position, transform.forward); // checkEnemy
                 if (Physics.Raycast(pickableRay, out pickableHit, reach))
                 {
+                    if (pickableHit.transform.gameObject.tag == "Switch")
+                    {
+                        var go = Instantiate(cube2, pickableHit.point, Quaternion.identity) as GameObject;
+                        pickableHit.transform.gameObject.SendMessage("Switched");
+                    }
+                    else {
+                        var go = Instantiate(cube, pickableHit.point, Quaternion.identity) as GameObject;
+                    }
                     playerCubes--; 
-                    var go = Instantiate(cube, pickableHit.point, Quaternion.identity) as GameObject;
                     // if the player has their ping pong ability selected
                     //go.AddComponent<Move_PingPong>();
                 }

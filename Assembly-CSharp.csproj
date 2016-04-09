@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Retro Pixel\Scripts\RetroPixel.cs" />
      <Compile Include="Assets\Scripts\Cubes\Checkpoint.cs" />
+     <Compile Include="Assets\Scripts\Cubes\CollideSwitch.cs" />
      <Compile Include="Assets\Scripts\Cubes\Exit.cs" />
      <Compile Include="Assets\Scripts\Cubes\Falling.cs" />
      <Compile Include="Assets\Scripts\Cubes\Flip.cs" />

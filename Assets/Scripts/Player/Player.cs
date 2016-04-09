@@ -79,5 +79,8 @@ public class Player : MonoBehaviour
         {
             hit.SendMessage("PlayerExits");
         }
+        if (hit.gameObject.tag == "Death") {
+            transform.position = checkpoint;
+        }
     }
 }
