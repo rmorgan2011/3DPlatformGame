@@ -4,14 +4,7 @@ using System.Collections;
 public class Flip : MonoBehaviour
 {
 
-    //this is how it works
-    //press f
-    //freeze time?
-    //finds player as pivot point (grab global position, local rotation)
-    //rotate everything around that with lerp
-    //?unfreeze time
-
-    //this is level
+    
     public Transform player;
     public Transform pivot;
 
@@ -49,7 +42,10 @@ public class Flip : MonoBehaviour
         {
             //this works pretty well
 
-            pivot.rotation = Quaternion.Lerp(pivot.localRotation, Quaternion.Euler(0, 0, 180), Time.deltaTime * speed);//
+            if ((pivot.rotation = Quaternion.Lerp(pivot.localRotation, Quaternion.Euler(0, 0, 180), Time.deltaTime * speed)) == pivot.rotation)
+            {
+                player.gameObject.SendMessage("UpdateCheckpoint");
+            }
 
 
             if (timeF + cooldownShouldBe2 < Time.timeSinceLevelLoad)

@@ -14,9 +14,12 @@ public class Player : MonoBehaviour
     public Animator goalAnimator;
     public GameObject goal;
 
+    private GameObject checkpointGO;
+
     // Use this for initialization
     void Start()
     {
+        checkpointGO = null;
         player = this.gameObject.transform.GetChild(0);
         playerPickup = player.GetComponent<PlayerPickup>();
         rb = GetComponent<Rigidbody>();
@@ -36,11 +39,18 @@ public class Player : MonoBehaviour
         {
             //swapAbility(down);
         }
-        if (transform.position.y < -5f) {
+        if (transform.position.y < checkpoint.y - 100f) {
             transform.position = checkpoint;
         }
     }
 
+    void UpdateCheckpoint()
+    {
+        if (checkpointGO != null)
+        {
+            checkpoint = checkpointGO.transform.position;
+        }
+    }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -72,6 +82,7 @@ public class Player : MonoBehaviour
             Destroy(hit.gameObject, 1.0f);
         }
         if (hit.gameObject.tag == "Checkpoint") {
+            checkpointGO = hit.gameObject;
             checkpoint = hit.gameObject.transform.position;
             hit.SendMessage("HasBeenReached");
         }
