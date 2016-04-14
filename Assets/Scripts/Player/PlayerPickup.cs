@@ -9,6 +9,7 @@ public class PlayerPickup : MonoBehaviour {
     public GameObject cube2;
     public float reach;
     public Text cubeText;
+    public GameObject levelmanager;
 
 	// Use this for initialization
 	void Start () {
@@ -44,9 +45,11 @@ public class PlayerPickup : MonoBehaviour {
                     {
                         var go = Instantiate(cube2, pickableHit.point, Quaternion.identity) as GameObject;
                         pickableHit.transform.gameObject.SendMessage("Switched");
+                        //go.transform.parent = levelmanager.transform;
                     }
                     else {
                         var go = Instantiate(cube, pickableHit.point, Quaternion.identity) as GameObject;
+                        //go.transform.parent = levelmanager.transform;
                     }
                     playerCubes--; 
                     // if the player has their ping pong ability selected
@@ -55,6 +58,7 @@ public class PlayerPickup : MonoBehaviour {
                 else {
                     playerCubes--;
                     var go = Instantiate(cube, transform.position+(transform.forward*6), Quaternion.identity) as GameObject;
+                    //go.transform.parent = levelmanager.transform;
                 }
                 cubeText.text = "Cubes: " + playerCubes;
             }

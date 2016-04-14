@@ -14,7 +14,7 @@ public class Play : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKey(KeyCode.P)) {
-            Application.LoadLevel("Level");
+            Application.LoadLevel("World1");
         }      
     }
 }
