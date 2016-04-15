@@ -42,6 +42,11 @@ public class QM_CharControl : MonoBehaviour
     public float speed = 5;
 
     public GameObject player;
+    [SerializeField]
+    Camera Camera;
+
+    [Range(10f, 50f)]
+    public float Speed = 30;
 
     private void Start()
     {
@@ -50,7 +55,7 @@ public class QM_CharControl : MonoBehaviour
         GetComponent<Rigidbody>().freezeRotation = true; // disable physics rotation
                                          // distance from transform.position to ground
         distGround = boxCollider.extents.y - boxCollider.center.y;
-        originalRotation = transform.localRotation;
+        originalRotation = Camera.transform.localRotation;
     }
 
     private void FixedUpdate()
@@ -84,23 +89,24 @@ public class QM_CharControl : MonoBehaviour
        
         }
         // movement code - turn left/right with Horizontal axis:
-         player.GetComponentInChildren<Transform>().Rotate(-Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime, Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime, 0);
+        // player.GetComponentInChildren<Transform>().Rotate(-Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime, Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime, 0);
+        transform.rotation = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * speed * Time.deltaTime, transform.rotation * Vector3.up) * transform.rotation;
+        Camera.transform.rotation = Quaternion.AngleAxis(-Input.GetAxis("Mouse Y") * Speed * Time.deltaTime, Camera.transform.rotation * Vector3.right) * Camera.transform.rotation;
+        // myTransform.Rotate (-Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime, 0, 0);
+        // rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+        //  rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
 
-       // myTransform.Rotate (-Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime, 0, 0);
-       // rotationX += Input.GetAxis("Mouse X") * sensitivityX;
-      //  rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+        //  Quaternion xQuaternion = (Quaternion.AngleAxis(rotationX, myNormal + Vector3.up));
+        // Quaternion yQuaternion = (Quaternion.AngleAxis(rotationY, - myNormal + Vector3.left));
 
-      //  Quaternion xQuaternion = (Quaternion.AngleAxis(rotationX, myNormal + Vector3.up));
-       // Quaternion yQuaternion = (Quaternion.AngleAxis(rotationY, - myNormal + Vector3.left));
-
-     //  transform.localRotation = originalRotation * xQuaternion * yQuaternion;
+        //  transform.localRotation = originalRotation * xQuaternion * yQuaternion;
         //  rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
 
         //rotationY += transform.localEulerAngles.x + Input.GetAxis("Mouse Y") * sensitivityY;
         // rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
         //transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
-       
+
         //transform.localEulerAngles.y += Input.GetAxis("Mouse X") * speed;
         ray = new Ray(myTransform.position, -myNormal); // cast ray downwards
             if (Physics.Raycast(ray, out hit))

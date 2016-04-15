@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -75,6 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\JMO Assets\Toony Colors\Demo 2.0\TCF_Demo.cs" />
     <Compile Include="Assets\Retro Pixel\Scripts\RetroPixel.cs" />
     <Compile Include="Assets\Scripts\Cubes\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Cubes\CollideSwitch.cs" />
@@ -85,6 +80,7 @@
     <Compile Include="Assets\Scripts\Cubes\Move_360.cs" />
     <Compile Include="Assets\Scripts\Cubes\Move_PingPong.cs" />
     <Compile Include="Assets\Scripts\Cubes\Pickable.cs" />
+    <Compile Include="Assets\Scripts\Cubes\Rotator.cs" />
     <Compile Include="Assets\Scripts\Level3\Button.cs" />
     <Compile Include="Assets\Scripts\Level3\PuzzleBoard.cs" />
     <Compile Include="Assets\Scripts\Level3\PuzzleButtons.cs" />
@@ -95,6 +91,12 @@
     <Compile Include="Assets\Scripts\Start Menu\Play.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
+    <None Include="Assets\JMO Assets\Toony Colors\!ToonyColors Readme.txt" />
+    <None Include="Assets\JMO Assets\Toony Colors\Shaders 2.0\Regular.shader" />
+    <None Include="Assets\JMO Assets\Toony Colors\Shaders 2.0\Rim Alpha.shader" />
+    <None Include="Assets\JMO Assets\Toony Colors\Shaders 2.0\Rim Lighting.shader" />
+    <None Include="Assets\JMO Assets\Toony Colors\Shaders 2.0\Rim Outline.shader" />
     <None Include="Assets\Retro Pixel\Readme.txt" />
     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel10.shader" />
     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel11.shader" />
