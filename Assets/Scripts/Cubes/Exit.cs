@@ -16,6 +16,6 @@ public class Exit : MonoBehaviour {
 	}
 
     void PlayerExits() {
-        Application.LoadLevel("World1");
+        Application.LoadLevel("Start");
     }
 }
