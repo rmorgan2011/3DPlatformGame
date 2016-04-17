@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Cubes\Move_PingPong.cs" />
     <Compile Include="Assets\Scripts\Cubes\Pickable.cs" />
     <Compile Include="Assets\Scripts\Cubes\Rotator.cs" />
+    <Compile Include="Assets\Scripts\Cubes\changeSize.cs" />
     <Compile Include="Assets\Scripts\Level3\Button.cs" />
     <Compile Include="Assets\Scripts\Level3\PuzzleBoard.cs" />
     <Compile Include="Assets\Scripts\Level3\PuzzleButtons.cs" />
