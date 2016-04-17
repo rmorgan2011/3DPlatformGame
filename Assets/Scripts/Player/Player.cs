@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public bool collide;
     public CharacterController cc;
-
+    public Text death;
+    int numDeaths;
+    public Text timer;
+    float time;
     public Animator goalAnimator;
     public GameObject goal;
 
@@ -23,11 +27,16 @@ public class Player : MonoBehaviour
         player = this.gameObject.transform.GetChild(0);
         playerPickup = player.GetComponent<PlayerPickup>();
         rb = GetComponent<Rigidbody>();
+        numDeaths = 0;
+        time = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+        timer.text = "Time: " + (int)time;
+
         // Find current goal
         goal = GameObject.Find("Goal");
         goalAnimator = goal.GetComponent<Animator>();
@@ -41,6 +50,8 @@ public class Player : MonoBehaviour
         }
         if (transform.position.y < checkpoint.y - 100f) {
             transform.position = checkpoint;
+            numDeaths++;
+            death.text = "Deaths: " + numDeaths;
         }
     }
 
