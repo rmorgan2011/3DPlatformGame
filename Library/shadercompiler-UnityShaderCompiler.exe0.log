@@ -1,2 +1,66 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: getPlatforms
+Cmd: preprocess
+  insize=5352 outsize=1534 ok=1
+Cmd: preprocess
+  insize=4159 outsize=1016 ok=1
+Cmd: preprocess
+  insize=4652 outsize=1322 ok=1
+Cmd: preprocess
+  insize=2171 outsize=697 ok=1
+Cmd: preprocess
+  insize=2258 outsize=1457 ok=1
+Cmd: preprocess
+  insize=12815 outsize=2575 ok=1
+Cmd: preprocess
+  insize=4544 outsize=1315 ok=1
+Cmd: preprocess
+  insize=5778 outsize=1647 ok=1
+Cmd: preprocess
+  insize=1319 outsize=471 ok=1
+Cmd: preprocess
+  insize=1531 outsize=527 ok=1
+Cmd: preprocess
+  insize=4607 outsize=1318 ok=1
+Cmd: preprocess
+  insize=560 outsize=560 ok=1
+Cmd: preprocess
+  insize=2730 outsize=1622 ok=1
+Cmd: preprocess
+  insize=11975 outsize=2457 ok=1
+Cmd: preprocess
+  insize=5762 outsize=1631 ok=1
+Cmd: preprocess
+  insize=5565 outsize=1590 ok=1
+Cmd: preprocess
+  insize=1802 outsize=527 ok=1
+Cmd: preprocess
+  insize=1107 outsize=415 ok=1
+Cmd: preprocess
+  insize=4919 outsize=1413 ok=1
+Cmd: preprocess
+  insize=4720 outsize=1368 ok=1
+Cmd: preprocess
+  insize=4575 outsize=1317 ok=1
+Cmd: preprocess
+  insize=5141 outsize=1478 ok=1
+Cmd: preprocess
+  insize=4511 outsize=1312 ok=1
+Cmd: preprocess
+  insize=2730 outsize=1621 ok=1
+Cmd: preprocess
+  insize=4622 outsize=1319 ok=1
+Cmd: preprocess
+  insize=4529 outsize=1313 ok=1
+Cmd: preprocess
+  insize=4637 outsize=1321 ok=1
+Cmd: preprocess
+  insize=1743 outsize=583 ok=1
+Cmd: preprocess
+  insize=4560 outsize=1316 ok=1
+Cmd: preprocess
+  insize=2674 outsize=1648 ok=1
+Cmd: preprocess
+  insize=4592 outsize=1318 ok=1
+Cmd: preprocess
+  insize=1956 outsize=640 ok=1
