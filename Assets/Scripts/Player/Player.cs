@@ -35,8 +35,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        timer.text = "Time: " + (int)time;
-
+        if (timer)
+        {
+            timer.text = "Time: " + (int)time;
+        }
         // Find current goal
         goal = GameObject.Find("Goal");
         goalAnimator = goal.GetComponent<Animator>();
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
         {
             //swapAbility(down);
         }
+        Debug.Log("Hi");
         if (transform.position.y < checkpoint.y - 100f) {
             transform.position = checkpoint;
             numDeaths++;

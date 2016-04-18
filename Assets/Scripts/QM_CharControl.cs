@@ -13,7 +13,7 @@ using System.Collections.Generic;
 
 public class QM_CharControl : MonoBehaviour
 {
-
+    public bool paused = false;
     private float moveSpeed = 10; // move speed
     private float turnSpeed = 90; // turning speed (degrees/second)
     private float lerpSpeed = 10; // smoothing speed
@@ -66,7 +66,15 @@ public class QM_CharControl : MonoBehaviour
 
     private void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        if (!paused)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
      
         // jump code - jump to wall or simple jump
         if (jumping) return; // abort Update while jumping to a wall
@@ -89,9 +97,9 @@ public class QM_CharControl : MonoBehaviour
        
         }
         // movement code - turn left/right with Horizontal axis:
-        // player.GetComponentInChildren<Transform>().Rotate(-Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime, Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime, 0);
-        transform.rotation = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * speed * Time.deltaTime, transform.rotation * Vector3.up) * transform.rotation;
-        Camera.transform.rotation = Quaternion.AngleAxis(-Input.GetAxis("Mouse Y") * Speed * Time.deltaTime, Camera.transform.rotation * Vector3.right) * Camera.transform.rotation;
+        transform.Rotate(-Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime, Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime, 0);
+       // transform.rotation = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * speed * Time.deltaTime, transform.rotation * Vector3.up) * transform.rotation;
+       // Camera.transform.rotation = Quaternion.AngleAxis(-Input.GetAxis("Mouse Y") * Speed * Time.deltaTime, Camera.transform.rotation * Vector3.right) * Camera.transform.rotation;
         // myTransform.Rotate (-Input.GetAxis("Mouse Y") * turnSpeed * Time.deltaTime, 0, 0);
         // rotationX += Input.GetAxis("Mouse X") * sensitivityX;
         //  rotationY += Input.GetAxis("Mouse Y") * sensitivityY;

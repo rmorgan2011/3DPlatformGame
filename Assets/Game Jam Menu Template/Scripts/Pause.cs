@@ -7,6 +7,7 @@ public class Pause : MonoBehaviour {
 	private ShowPanels showPanels;						//Reference to the ShowPanels script used to hide and show UI panels
 	private bool isPaused;								//Boolean to check if the game is paused or not
 	private StartOptions startScript;					//Reference to the StartButton script
+    private GameObject player;
 	
 	//Awake is called before Start()
 	void Awake()
@@ -45,6 +46,11 @@ public class Pause : MonoBehaviour {
 	{
 		//Set isPaused to true
 		isPaused = true;
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
+        {
+            player.GetComponent<QM_CharControl>().paused = true;
+        }
 		//Set time.timescale to 0, this will cause animations and physics to stop updating
 		Time.timeScale = 0;
 		//call the ShowPausePanel function of the ShowPanels script
@@ -56,8 +62,13 @@ public class Pause : MonoBehaviour {
 	{
 		//Set isPaused to false
 		isPaused = false;
-		//Set time.timescale to 1, this will cause animations and physics to continue updating at regular speed
-		Time.timeScale = 1;
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player)
+        {
+            player.GetComponent<QM_CharControl>().paused = false;
+        }
+        //Set time.timescale to 1, this will cause animations and physics to continue updating at regular speed
+        Time.timeScale = 1;
 		//call the HidePausePanel function of the ShowPanels script
 		showPanels.HidePausePanel ();
 	}
