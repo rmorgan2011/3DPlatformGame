@@ -20,6 +20,9 @@ public class PuzzleButtons : MonoBehaviour {
     }
 
     void Pressed() {
-        platform.SendMessage("Pressed");
+        if (platform)
+        {
+            platform.SendMessage("Pressed");
+        }
     }
 }

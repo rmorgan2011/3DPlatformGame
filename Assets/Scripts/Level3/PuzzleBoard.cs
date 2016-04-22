@@ -51,8 +51,14 @@ public class PuzzleBoard : MonoBehaviour {
                 solved = true;
                 // send message to the game object
                 activatedObject.SetActive(true);
-                activatedObject2.SetActive(true);
-                activatedObject3.SetActive(true);
+                if (activatedObject2)
+                {
+                    activatedObject2.SetActive(true);
+                }
+                if (activatedObject3)
+                {
+                    activatedObject3.SetActive(true);
+                }
             }
         }
     }

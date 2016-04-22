@@ -41,7 +41,10 @@ public class Player : MonoBehaviour
         }
         // Find current goal
         goal = GameObject.Find("Goal");
-        goalAnimator = goal.GetComponent<Animator>();
+        if (goal)
+        {
+            goalAnimator = goal.GetComponent<Animator>();
+        }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0.2){
             //swapAbility(up);
@@ -50,11 +53,14 @@ public class Player : MonoBehaviour
         {
             //swapAbility(down);
         }
-        Debug.Log("Hi");
+
         if (transform.position.y < checkpoint.y - 100f) {
             transform.position = checkpoint;
             numDeaths++;
-            death.text = "Deaths: " + numDeaths;
+            if (death)
+            {
+                death.text = "Deaths: " + numDeaths;
+            }
         }
     }
 

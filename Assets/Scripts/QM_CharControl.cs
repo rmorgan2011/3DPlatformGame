@@ -26,16 +26,15 @@ public class QM_CharControl : MonoBehaviour
     private Vector3 myNormal; // character normal
     private float distGround; // distance from character position to ground
     private bool jumping = false; // flag &quot;I'm jumping to wall&quot;
-    private float vertSpeed = 0; // vertical jump current speed
 
     private Transform myTransform;
     public BoxCollider boxCollider; // drag BoxCollider ref in editor
 
-    private bool gravityMode = true;
+  //  private bool gravityMode = true;
 
-    float rotationX = 0F;
-    float rotationY = 0F;
-    Quaternion originalRotation;
+   // float rotationX = 0F;
+  //  float rotationY = 0F;
+   // Quaternion originalRotation;
     public float sensitivityX = 15F;
     public float sensitivityY = 15F;
 
@@ -55,7 +54,7 @@ public class QM_CharControl : MonoBehaviour
         GetComponent<Rigidbody>().freezeRotation = true; // disable physics rotation
                                          // distance from transform.position to ground
         distGround = boxCollider.extents.y - boxCollider.center.y;
-        originalRotation = Camera.transform.localRotation;
+     //   originalRotation = Camera.transform.localRotation;
     }
 
     private void FixedUpdate()
@@ -129,9 +128,9 @@ public class QM_CharControl : MonoBehaviour
             }
             myNormal = Vector3.Lerp(myNormal, surfaceNormal, lerpSpeed * Time.deltaTime);
             // find forward direction with new myNormal:
-            Vector3 myForward = Vector3.Cross(myTransform.right, myNormal);
+          //  Vector3 myForward = Vector3.Cross(myTransform.right, myNormal);
             // align character to the new myNormal while keeping the forward direction:
-            Quaternion targetRot = Quaternion.LookRotation(myForward, myNormal);
+          //  Quaternion targetRot = Quaternion.LookRotation(myForward, myNormal);
       
         myTransform.Translate(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime,0, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
     }

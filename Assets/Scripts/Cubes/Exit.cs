@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour {
 
@@ -16,6 +17,12 @@ public class Exit : MonoBehaviour {
 	}
 
     void PlayerExits() {
-        Application.LoadLevel("Start");
+        GameObject[] UI = GameObject.FindGameObjectsWithTag("UI");
+        foreach (GameObject element in UI){
+            Destroy(element);
+        }
+        SceneManager.LoadScene(0);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 }

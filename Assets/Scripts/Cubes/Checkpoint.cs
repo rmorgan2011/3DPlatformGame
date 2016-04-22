@@ -16,13 +16,22 @@ public class Checkpoint : MonoBehaviour
     {
         isCheckpoint = false;
         playerFP = GameObject.Find("FirstPersonCharacter");
-        pickup = playerFP.GetComponent<PlayerPickup>();
+        if (playerFP)
+        {
+            pickup = playerFP.GetComponent<PlayerPickup>();
+        }
         ringsUp = GameObject.Find("RingsUp");
         ringsDown = GameObject.Find("RingsDown");
-        ringsUp.GetComponent<ParticleSystem>().playbackSpeed = 0;
-        ringsDown.GetComponent<ParticleSystem>().playbackSpeed = 0;
+        if (ringsUp)
+        {
+            ringsUp.GetComponent<ParticleSystem>().playbackSpeed = 0;
+        }
+        if (ringsDown)
+        {
+            ringsDown.GetComponent<ParticleSystem>().playbackSpeed = 0;
+        }
     }
-
+        
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +46,7 @@ public class Checkpoint : MonoBehaviour
 
     void HasBeenReached()
     {
+        if(this.gameObject.GetComponent<Rotator>())
         this.gameObject.GetComponent<Rotator>().enabled = false;
         this.gameObject.transform.eulerAngles = new Vector3(0, 0, 0);
         expandXYZ();

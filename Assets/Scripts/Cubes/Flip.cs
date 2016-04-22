@@ -10,7 +10,7 @@ public class Flip : MonoBehaviour
 
     private bool isFlipping;
     private float timeF;
-    private float rotTimer;
+   // private float rotTimer;
     public float cooldownShouldBe2;
     public float speed;
 
@@ -21,7 +21,7 @@ public class Flip : MonoBehaviour
     {
         isFlipping = false;
         timeF = Mathf.NegativeInfinity;
-        rotTimer = 0;
+   //     rotTimer = 0;
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class Flip : MonoBehaviour
         //and prep for flip
         if (Input.GetKeyDown(KeyCode.F) && Time.timeSinceLevelLoad > timeF + cooldownShouldBe2)
         {
-            rotTimer = 0;
+      //      rotTimer = 0;
             timeF = Time.timeSinceLevelLoad;
             isFlipping = true;
             

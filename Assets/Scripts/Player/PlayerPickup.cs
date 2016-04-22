@@ -25,14 +25,17 @@ public class PlayerPickup : MonoBehaviour {
             Ray pickableRay = new Ray(transform.position, transform.forward); // checkEnemy
             if (Physics.Raycast(pickableRay, out pickableHit, reach))
             {
-                pickableHit.transform.SendMessage("PickedUp");
-                
+                if (pickableHit.transform.GetComponent<Pickable>())
+                {
+                    pickableHit.transform.SendMessage("PickedUp");
+                }
+                if (pickableHit.collider.tag == "Pickable")
+                {
+                    playerCubes++;
+                    cubeText.text = "Cubes: " + playerCubes;
+                }
             }
-            if (pickableHit.collider.tag == "Pickable")
-            {
-                playerCubes++;
-                cubeText.text = "Cubes: " + playerCubes;
-            }
+            
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
@@ -69,8 +72,15 @@ public class PlayerPickup : MonoBehaviour {
                 Ray pickableRay = new Ray(transform.position, transform.forward); // checkEnemy
                 if (Physics.Raycast(pickableRay, out pickableHit, reach))
                 {
+                if (pickableHit.transform.GetComponent<Button>())
+                {
                     pickableHit.transform.SendMessage("ActivateButton");
-                pickableHit.transform.SendMessage("Pressed");  
+                }
+                if (pickableHit.transform.GetComponent<PuzzleButtons>())
+                {
+                    pickableHit.transform.SendMessage("Pressed");
+                }
+                if(pickableHit.transform.GetComponent<PuzzleCube>())
                     pickableHit.transform.SendMessage("ClickedPuzzleCube");
                 }
                 else {
